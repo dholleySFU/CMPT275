@@ -12,22 +12,34 @@
 	<dict>
 		<key>A258711734B243F937D3EC11A0E5F51017067579</key>
 		<string>https://github.com/dholleySFU/EyeAgnostic.git</string>
+		<key>BF09FB1AB96F272119204B29DFFEC5ABBF7396A9</key>
+		<string>https://github.com/dholleySFU/CMPT275.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>EyeAgnostic.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A258711734B243F937D3EC11A0E5F51017067579</key>
+		<string>../../../EyeAgnostic</string>
+		<key>BF09FB1AB96F272119204B29DFFEC5ABBF7396A9</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/dholleySFU/EyeAgnostic.git</string>
+	<string>https://github.com/dholleySFU/CMPT275.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A258711734B243F937D3EC11A0E5F51017067579</string>
+	<string>BF09FB1AB96F272119204B29DFFEC5ABBF7396A9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BF09FB1AB96F272119204B29DFFEC5ABBF7396A9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CMPT275</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
