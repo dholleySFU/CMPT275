@@ -21,6 +21,7 @@ class Case: NSObject, NSCoding {
     var caseDate: String
     var caseImage: UIImage?
     var caseNotes: String
+    var caseAdditionals: [UIImage]?
     
     // MARK: Types
     
@@ -29,16 +30,18 @@ class Case: NSObject, NSCoding {
         static let dateKey = "caseDate"
         static let noteKey = "caseNotes"
         static let imageKey = "caseImage"
+        static let additionalsKey = "caseAdditionals"
     }
     
     // MARK: Initaliation
     
-    init( caseName: String, caseDate: String, caseImage: UIImage?, caseNotes: String) {
+    init( caseName: String, caseDate: String, caseImage: UIImage?, caseNotes: String, caseAdditionals: [UIImage]?) {
         //Initialize Stored Properties
         self.caseName = caseName
         self.caseDate = caseDate
         self.caseImage = caseImage
         self.caseNotes = caseNotes
+        self.caseAdditionals = caseAdditionals
         
         super.init()
         
@@ -54,6 +57,7 @@ class Case: NSObject, NSCoding {
         aCoder.encodeObject(caseDate, forKey: CaseKey.dateKey)
         aCoder.encodeObject(caseNotes, forKey: CaseKey.noteKey)
         aCoder.encodeObject(caseImage, forKey: CaseKey.imageKey)
+        aCoder.encodeObject(caseAdditionals, forKey: CaseKey.additionalsKey)
     }
     
     required convenience init(coder aDecoder: NSCoder) {
@@ -61,8 +65,9 @@ class Case: NSObject, NSCoding {
         let caseDate = aDecoder.decodeObjectForKey(CaseKey.dateKey) as! String
         let caseNotes = aDecoder.decodeObjectForKey(CaseKey.noteKey) as! String
         let caseImage = aDecoder.decodeObjectForKey(CaseKey.imageKey) as? UIImage
+        let caseAdditionals = aDecoder.decodeObjectForKey(CaseKey.additionalsKey) as? [UIImage]
         
-        self.init(caseName: caseName, caseDate: caseDate, caseImage: caseImage, caseNotes: caseNotes)
+        self.init(caseName: caseName, caseDate: caseDate, caseImage: caseImage, caseNotes: caseNotes, caseAdditionals: caseAdditionals)
         
     }
 }

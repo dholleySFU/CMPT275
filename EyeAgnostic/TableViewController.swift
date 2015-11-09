@@ -17,14 +17,16 @@ class TableViewController: UITableViewController {
     
     var cases = [Case]()
     
-    /*
-    func loadSampleData() {
-        let photo1 = UIImage(named: "retino1.jpg")!
-        let sample1 = Case(caseName: "John Doe", caseDate: "2015-11-08", caseImage: photo1, caseNotes: "Age 7")!
+    
+    func loadSampleData(){
+        let photo1 = UIImage(named: "Avery-Fitzgerald.jpg")!
+        let sample1 = Case(caseName: "Avery Fitzgerald", caseDate: "2015-11-08", caseImage: photo1, caseNotes: "Age 10", caseAdditionals: nil)
+        let photo2 = UIImage(named: "retino1.jpg")!
+        let sample2 = Case(caseName: "Matthew Kelly", caseDate: "2015-10-02", caseImage: photo2, caseNotes: "Age 2", caseAdditionals: nil)
         
-        cases += [sample1]
+        cases += [sample1, sample2]
     }
-    */
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,8 @@ class TableViewController: UITableViewController {
         }
         
         //Load Sample Data
-        //loadSampleData()
+        loadSampleData()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -131,19 +134,19 @@ class TableViewController: UITableViewController {
             }
         }
         else if segue.identifier == "AddItem" {
-            print("Adding new meal.")
+            
         }
     }
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToCaseList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? NewCaseViewController, curCase = sourceViewController.newCase {
             if let selectedIndexPath = tableView.indexPathForSelectedRow() {
-                // Update an existing meal.
+                // Update an existing case.
                 cases[selectedIndexPath.row] = curCase
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             }
             else {
-                // Add a new meal.
+                // Add a new case.
                 let newIndexPath = NSIndexPath(forRow: cases.count, inSection: 0)
                 cases.append(curCase)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
@@ -156,7 +159,7 @@ class TableViewController: UITableViewController {
     func saveCases() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(cases, toFile: Case.ArchiveURL.path!)
         if !isSuccessfulSave {
-            print("Failed to save meals...")
+            print("Failed to save cases...")
         }
     }
     

@@ -16,11 +16,12 @@ class NewCaseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var NotesField: UITextField!
     @IBOutlet weak var CaseImage: UIImageView!
     @IBOutlet weak var SaveButton: UIBarButtonItem!
+    var CaseAdditionals: [UIImage]!
     
     
     /*
-    This value is either passed by `MealTableViewController` in `prepareForSegue(_:sender:)`
-    or constructed as part of adding a new meal.
+    This value is either passed by `CaseTableViewController` in `prepareForSegue(_:sender:)`
+    or constructed as part of adding a new case.
     */
     var newCase: Case?
     var picker:UIImagePickerController?=UIImagePickerController()
@@ -37,10 +38,11 @@ class NewCaseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             DateField.text = newCase.caseDate
             NotesField.text = newCase.caseNotes
             CaseImage.image = newCase.caseImage
-            
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
+        //CaseImage.contentMode = .ScaleAspectFit
+        
+        // Enable the Save button only if the text field has a valid Case name.
         checkValidName()
     }
     
@@ -133,8 +135,8 @@ class NewCaseViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             let photo = CaseImage.image
             
             
-            // Set the meal to be passed to MealListTableViewController after the unwind segue.
-            newCase = Case(caseName: name, caseDate: date, caseImage: photo, caseNotes: notes)
+            // Set the case to be passed to TableViewController after the unwind segue.
+            newCase = Case(caseName: name, caseDate: date, caseImage: photo, caseNotes: notes, caseAdditionals: CaseAdditionals)
         }
     }
 }
